@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0f172a; /* MESMO FUNDO DA OUTRA PÁGINA */
+  color: #e5e7eb;
+  display: grid;
+  place-items: center;
+}
+
+/* CONTAINER (CARD DE LOGIN / CADASTRO) */
+.container {
+  width: 380px;
+  padding: 36px 32px 32px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.9);
+  border: 1px solid rgba(30, 41, 59, 0.9);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.03);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+/* LOGO */
+.logo {
+  width: 150px;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 4px 12px rgba(37, 99, 235, .35));
+}
+
+/* TÍTULO */
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #f1f5f9;
+}
+
+/* INPUTS */
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+input::placeholder {
+  color: #64748b;
+}
+
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+/* SELECT ESPECÍFICO */
+.tipo-usuario {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+/* BOTÃO PRINCIPAL */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(37, 99, 235, 0.6);
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 26px rgba(37, 99, 235, 0.5),
+    inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* LINK VOLTAR */
+.voltar {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.voltar a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.voltar a:hover {
+  text-decoration: underline;
+}

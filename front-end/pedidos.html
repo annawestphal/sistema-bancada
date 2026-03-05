@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel • Pedidos</title>
+  <link rel="stylesheet" href="pedidos.css"/>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div class="brand-info">
+        <h2>BANCADAS</h2>
+        <span>Painel de controle</span>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <a href="bancada.html">Bancada</a>
+      <a href="pedidos.html" class="active">Pedidos</a>
+      <a href="#">Configurações</a>
+      <a href="usuarios.cadastrados.html">Usuários cadastrados</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <h1>Pedidos de Produção</h1>
+      <input id="search" class="search" placeholder="Buscar pedido #ID"/>
+    </header>
+
+<section class="kpis">
+  <div class="kpi filter active" data-filter="all">
+    <span id="kpiAll">0</span>
+    <small>Todos</small>
+  </div>
+  <div class="kpi filter" data-filter="prod">
+    <span id="kpiProd">0</span>
+    <small>Em produção</small>
+  </div>
+  <div class="kpi filter" data-filter="done">
+    <span id="kpiDone">0</span>
+    <small>Finalizados</small>
+  </div>
+  <div class="kpi filter warn" data-filter="late">
+    <span id="kpiLate">0</span>
+    <small>Atrasados</small>
+  </div>
+</section>
+    <section class="orders">
+      <div class="orders-list" id="lista-pedidos"></div>
+      <div class="order-details" id="detalhes">
+        <div class="empty">
+          <h2>Selecione um pedido</h2>
+          <p>Visualize os detalhes de produção aqui</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="content">
+  <div class="content-header">
+    <h2>Pedidos</h2>
+    <div class="filtros">
+      <button class="btn filtro active" data-status="todos">Todos</button>
+      <button class="btn filtro" data-status="andamento">Em andamento</button>
+      <button class="btn filtro" data-status="atrasado">Atrasados</button>
+      <button class="btn filtro" data-status="finalizado">Finalizados</button>
+    </div>
+  </div>
+
+  <div class="pedidos-layout">
+    <div class="pedidos-lista" id="listaPedidos"></div>
+
+    <div class="pedido-detalhes" id="detalhesPedido">
+      <h3>Selecione um pedido</h3>
+      <p>As informações aparecerão aqui.</p>
+    </div>
+  </div>
+</div>
+<td class="acoes-pedido">
+  <button class="btn-pedido edit-pedido">Editar</button>
+  <button class="btn-pedido delete-pedido">Excluir</button>
+</td>
+<script src="pedidos.js"></script>
+</body>
+</html>

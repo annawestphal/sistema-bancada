@@ -1,0 +1,492 @@
+atualize * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #0b0d10;
+    color: #e6eef6;
+}
+
+/* LAYOUT GERAL */
+.app {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background: #0f1316;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #64ffd1, #2fb8ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #071013;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.brand-info h2 {
+    font-size: 17px;
+    font-weight: 700;
+}
+.brand-info span {
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu a {
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #b9d5e8;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: rgba(255,255,255,0.07);
+    color: #e6f7ff;
+}
+
+.status-box {
+    margin-top: auto;
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+/* TOPBAR */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.015);
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.07);
+    color: white;
+    font-size: 14px;
+}
+
+/* BOTOES */
+.btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #e6eef6;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8c9aad;
+}
+
+/* CONTENT */
+.content {
+    padding: 24px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.badge {
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* GRID DE CARDS */
+.grid {
+    display: grid;
+    gap: 22px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 18px;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.55);
+}
+
+.card h3 {
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.card small {
+    color: #94a8c0;
+}
+
+.card .status {
+    margin-top: 14px;
+    color: #7dffa4;
+}
+
+/* CONGELAMENTO */
+.frozen {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.frozen-banner {
+    position: fixed;
+    right: 18px;
+    top: 18px;
+    background: #0b1212;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: none;
+}
+.card-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+  .card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;   /* agora NÃO corta a imagem */
+    border-radius: 12px;
+    margin-bottom: 14px;
+    background: #0b0d10;   /* fundo para as bordas da imagem */
+    padding: 6px;          /* opcional */
+}
+
+
+
+.estoque-label {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #b8c7d9;
+}
+
+.estoque-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 6px 0;
+}
+
+.estoque-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width .4s ease;
+}
+
+.estoque-numero {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: -4px;
+}
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff3b3b;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.logout:hover {
+    background: #d12f2f;
+}
+/* --- ESTOQUE: BOLINHAS VISUAIS --- */
+
+.visual-est {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.linha-bolinhas {
+    display: flex;
+    gap: 6px;
+}
+
+.bolinha {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #777;
+}
+
+/* Disponível = azul */
+.bolinha.disponivel {
+    background: #00aaff;
+}
+
+/* Indisponível = vermelho */
+.bolinha.indisponivel {
+    background: #ff3b3b;
+}
+
+/* Legenda */
+.legendas {
+    margin-top: 14px;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    opacity: .9;
+}
+
+.legendas div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* ===== MODAL DO ESTOQUE ===== */
+.estoque-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.estoque-box {
+    background: #0f1316;
+    padding: 24px;
+    border-radius: 12px;
+    width: 420px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.estoque-tabela {
+    width: 100%;
+    margin-top: 12px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.estoque-tabela th,
+.estoque-tabela td {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* ===== VISUAL DAS BOLINHAS ===== */
+.visual-est {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.linha-bolinhas {
+    display: flex;
+    gap: 6px;
+}
+
+/* Bolinha base */
+.bolinha {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+/* Azul = disponível */
+.bolinha.disponivel {
+    background: #00aaff;
+}
+
+/* Vermelha = indisponível */
+.bolinha.indisponivel {
+    background: #ff4444;
+}
+
+/* Legenda */
+.legendas {
+    margin-top: 14px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.85;
+}
+
+.legendas div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* STATUS CORES */
+.status-online {
+    color: #7dffa4 !important; /* verde */
+    font-weight: 600;
+}
+
+.status-offline  {
+    color: #ff5e5e !important; /* vermelho */
+    font-weight: 600;
+}
+
+.acoes {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column; /* um embaixo do outro */
+    gap: 10px;
+    width: 100%;
+}
+
+.acoes .btn {
+    width: 100%;         /* botão ocupa toda a largura */
+    text-align: center;  /* texto centralizado */
+}
+/* ---- MODAL BONITO ---- */
+.estoque-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease;
+    z-index: 1000;
+}
+
+.estoque-box {
+    background: #1e1e1e;
+    padding: 28px;
+    border-radius: 14px;
+    width: 420px;
+    color: #fff;
+    animation: pop 0.25s ease;
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.25);
+    border: 1px solid #0077c2;
+}
+
+.estoque-box h2 {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 22px;
+    color: #00aaff;
+    text-shadow: 0 0 4px #00aaff;
+}
+
+.estoque-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.estoque-tabela th {
+    background: #0068a8;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.estoque-tabela td {
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.info-extra p {
+    margin: 6px 0;
+    background: #111;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+.btn.fechar {
+    margin-top: 18px;
+    background: #ff4444;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn.fechar:hover {
+    background: #ff2222;
+}
+
+/* bolinhas */
+.bolinha {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 3px;
+}

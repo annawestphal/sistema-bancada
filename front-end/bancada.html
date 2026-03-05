@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Industrial</title>
+    <link rel="stylesheet" href="bancada.css">
+</head>
+<body>
+
+<a href="index.html" class="logout">Sair</a>
+
+<div class="app" id="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">S</div>
+            <div class="brand-info">
+                <h2>BANCADAS</h2>
+                <span>Painel de controle</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="active">Bancada</a>
+           <a href="pedidos.html">Pedidos</a>
+            <a href="#">Configurações</a>
+            <a href="usuarios.cadastrados.html">Usuários cadastrados</a>
+
+        </nav>
+
+        <div class="status-box">
+            <p><strong>Bancada B02</strong></p>
+            <p>Temperatura: <strong>24°C</strong></p>
+        </div>
+        <div class="status-box">
+    <p><strong>Bancada B04</strong></p>
+    <p>Temperatura: <strong>26°C</strong></p>
+</div>
+<div class="status-box">
+    <p><strong>Bancada B03</strong></p>
+    <p>Temperatura: <strong>23°C</strong></p>
+</div>
+<div class="status-box">
+    <p><strong>Bancada B01</strong></p>
+    <p>Temperatura: <strong>25°C</strong></p>
+</div>
+
+
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="main">
+
+        <header class="topbar">
+            <div class="search-box">
+                <input id="search" placeholder="Bancada B02 | Pesquisar...">
+            </div>
+
+            <button id="freezeBtn" class="btn">Congelamento</button>
+            <div id="freezeDot" class="dot"></div>
+
+            <button class="btn">Novo</button>
+        </header>
+
+        <section class="content">
+
+            <div class="content-header">
+                <h3>Monitor das Bancadas</h3>
+                <span class="badge" id="onlineCount">4 online</span>
+            </div>
+
+            <div class="grid" id="grid">
+                <!-- CARDS das 4 BANCADAS serão gerados pelo JS -->
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<div id="frozenBanner" class="frozen-banner">CONGELAMENTO ATIVADO</div>
+
+<script src="bandaca.js"></script>
+</body>
+</html>

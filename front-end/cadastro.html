@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" class="logo" alt="Logo do Sistema">
+        <h2>Crie sua Conta</h2>
+
+        <form id="formCadastro" novalidate>
+
+            <input name="nome" type="text" placeholder="Nome" required>
+            <input name="sobrenome" type="text" placeholder="Sobrenome" required>
+<input name="usuario" type="text" placeholder="Nome de usuário" required>
+
+
+            <input name="email" type="email" placeholder="E-mail" required>
+
+            <label class="data-label"></label>
+            <input name="nascimento" type="date" required>
+
+            <input name="senha" id="senha" type="password" placeholder="Senha" required>
+            <input name="confirma" id="confirma" type="password" placeholder="Confirmar senha" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p class="voltar">Já tem conta? <a href="index.html">Entrar</a></p>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('formCadastro');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nome = form.elements['nome'].value.trim();
+        const sobrenome = form.elements['sobrenome'].value.trim();
+        const  tipo_usuario = form.elements['tipo_usuario'].value.trim();
+        const email = form.elements['email'].value.trim();
+        const nascimento = form.elements['nascimento'].value;
+        const senha = form.elements['senha'].value;
+        const confirma = form.elements['confirma'].value;
+       
+        <select id="tipo" required>
+            <option value="">tipo de usuario</option>
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            </select>
+            
+
+        if (!nome || !sobrenome || !usuario || !email || !nascimento || !senha || !tipo || !confirma) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+
+        if (senha !== confirma) {
+            alert('As senhas não coincidem.');
+            return;
+        }
+
+        try {
+            const user = { nome, sobrenome, usuario, email, nascimento, senha }
+            fetch("http://10.77.241.170:1880/api/usuario/cadastrar", {
+                method:"POST",
+                headers: {
+                    "Content-Type":"Application/JSON"
+                },
+                body:JSON.stringify(user)
+            })
+        } catch (err) {
+            console.warn('Erro ao salvar no localStorage:', err);
+        }
+
+        alert('Cadastro realizado com sucesso! Redirecionando...');
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 700);
+    });
+});
+<div class="tipo-usuario">
+    <select name="tipo_usuario" required>
+        <option value="" disabled selected>Tipo de usuário</option>
+        <option value="aluno">Aluno</option>
+        <option value="professor">Professor</option>
+    </select>
+</div>
+</script>
+ 
+</body>
+</html>
