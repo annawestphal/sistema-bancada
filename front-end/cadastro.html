@@ -15,7 +15,7 @@
 
             <input name="nome" type="text" placeholder="Nome" required>
             <input name="sobrenome" type="text" placeholder="Sobrenome" required>
-<input name="usuario" type="text" placeholder="Nome de usuário" required>
+<input name="tipo_usuario" type="text" placeholder="Tipo de usuário" required>
 
 
             <input name="email" type="email" placeholder="E-mail" required>
@@ -48,14 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const senha = form.elements['senha'].value;
         const confirma = form.elements['confirma'].value;
        
-        <select id="tipo" required>
-            <option value="">tipo de usuario</option>
-            <option value="aluno">Aluno</option>
-            <option value="professor">Professor</option>
-            </select>
-            
+       
 
-        if (!nome || !sobrenome || !usuario || !email || !nascimento || !senha || !tipo || !confirma) {
+        if (!nome || !sobrenome || !email || !nascimento || !senha || !tipo_usuario || !confirma) {
             alert('Por favor, preencha todos os campos.');
             return;
         }
@@ -67,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            const user = { nome, sobrenome, usuario, email, nascimento, senha }
-            fetch("http://10.77.241.170:1880/api/usuario/cadastrar", {
+            const user = { nome, sobrenome, tipo_usuario, email, nascimento, senha }
+            fetch("http://localhost:1880/api/usuario/cadastrar", {
                 method:"POST",
                 headers: {
                     "Content-Type":"Application/JSON"
@@ -85,13 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 700);
     });
 });
-<div class="tipo-usuario">
-    <select name="tipo_usuario" required>
-        <option value="" disabled selected>Tipo de usuário</option>
-        <option value="aluno">Aluno</option>
-        <option value="professor">Professor</option>
-    </select>
-</div>
+
 </script>
  
 </body>

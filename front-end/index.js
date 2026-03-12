@@ -1,41 +1,39 @@
-function entrar() {
-const usuario = document.getElementById('usuario').value;
-const senha = document.getElementById('senha').value;
 
-
-if (usuario === '' || senha === '') {
-alert('Por favor, preencha todos os campos!');
-} else {
-alert('Login realizado com sucesso!');
-}
-window.location.href = "bancada.html"
-}
 const form = document.getElementById("loginForm");
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault(); // impede enviar automaticamente
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
 
-    if (email === "" || password === "") {
-        alert("Preencha todos os campos!");
-        return; 
-    }
 
-    // validação básica de email
-    if (!email.includes("@") || !email.includes(".")) {
-        alert("Digite um email válido!");
+async function entrar(e){
+    e.preventDefault();
+
+    let input_email = document.getElementById('usuario');
+    let input_senha = document.getElementById('senha');
+
+    if(!input_email || !input_senha){
+        alert("Inputs não encontrados")
         return;
     }
 
-    // senha mínima
-    if (password.length < 4) {
-        alert("A senha deve ter no mínimo 4 caracteres!");
-        return;
+    let email = input_email.value;
+    let senha = input_senha.value;
+
+    try{
+
+        let resposta = await fetch("http://localhost:1880/api/autentificar",{
+            method:'POST',
+            body:JSON.stringify({email,senha})
+            //body:{email,senha}
+        })
+
+        if(resposta.status == 200){
+            alert("Login realizado com sucesso!");
+            window.location.href = "bancada.html";
+        }else{
+            alert("Usuário ou senha inválidos")
+        }
+    }catch(erro){
+        alert("Erro ao buscar, confira o console para ver mais detalhes.")
+        console.error(erro);
     }
-
-    // Se tudo estiver OK, enviar para a próxima página
-    window.location.href = "segunda_pagina.html";
-});
-
+}

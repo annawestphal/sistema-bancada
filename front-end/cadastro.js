@@ -1,9 +1,4 @@
-const tipoUsuario = document.getElementById("tipo").value;
 
-if (tipoUsuario === "") {
-  alert("Selecione o tipo de usuário");
-  return;
-}
 
 console.log(tipoUsuario); // aluno ou professor
 fetch("http://localhost:1880/api/usuario/cadastrar",{
