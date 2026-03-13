@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários cadastrados</title>
-    <link rel="stylesheet" href="usuarios.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usuários cadastrados</title>
+<link rel="stylesheet" href="usuarios.css">
 </head>
+
 <body>
 
 <div class="container">
 
-    <header class="header">
-        <h1>👤 Usuários Cadastrados</h1>
-        <a href="bancada.html" class="btn voltar">Voltar</a>
-    </header>
+<header class="header">
+<h1>👤 Usuários Cadastrados</h1>
+<a href="bancada.html" class="btn voltar">Voltar</a>
+</header>
 
-    <div class="top-bar">
-        <input type="text" id="searchInput" placeholder="🔎 Pesquisar usuário...">
-        <button class="btn add">+ Novo Usuário</button>
-    </div>
+<div class="top-bar">
+<input type="text" id="inputBusca" placeholder="Digite o email do usuário">
+<button onclick="buscar()">Buscar</button>
+<button class="btn add">+ Novo Usuário</button>
+</div>
 
-    <div class="card">
-        <table class="user-table">
-            <thead>
-             
-            </thead>
+<div class="card">
 
-            <tbody id="userTable"></tbody>
-        </table>
-    </div>
+<table class="user-table">
 
- 
-<td class="acoes">
-  <div class="acoes-wrapper">
-    <button class="edit-btn">Editar</button>
-    <button class="delete-btn">Excluir</button>
-  </div>
-</td>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Sobrenome</th>
+<th>Data Nascimento</th>
+<th>Tipo Usuário</th>
+<th>Email</th>
+<th>Ações</th>
+</tr>
+</thead>
+
+<tbody id="tabelaUsuarios">
+<!-- JS insere os usuários aqui -->
+</tbody>
+
+</table>
+
+</div>
+
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const botaoNovo = document.querySelector(".btn.add");
 
-    botaoNovo.addEventListener("click", () => {
-        window.location.href = "cadastro.html"; 
-    });
+document.addEventListener("DOMContentLoaded", () => {
+
+const botaoNovo = document.querySelector(".btn.add");
+
+botaoNovo.addEventListener("click", () => {
+window.location.href = "cadastro.html";
 });
 
-
-
-           
-
-
+});
 
 </script>
-
 
 <script src="usuarios.js"></script>
 
-
-</script>
 </body>
 </html>
