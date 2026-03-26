@@ -146,4 +146,20 @@ function editarPedido(id){
 }
 search.oninput = render;
 render();
+function novoPedido() {
+  document.getElementById("modalPedido").style.display = "block";
+}
 
+function fecharModal() {
+  document.getElementById("modalPedido").style.display = "none";
+}
+
+function salvarPedido() {
+  const cliente = document.getElementById("cliente").value;
+  const produto = document.getElementById("produto").value;
+
+  console.log({ cliente, produto });
+
+  alert("Pedido cadastrado!");
+  fecharModal();
+}

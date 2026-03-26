@@ -62,9 +62,14 @@
   </main>
 </div>
 <div class="content">
-  <div class="content-header">
-    <h2>Pedidos</h2>
-    <div class="filtros">
+<div class="content-header">
+  <h2>Pedidos</h2>
+
+  <button class="btn novo-pedido" onclick="novoPedido()">
+    + Novo Pedido
+  </button>
+
+  <div class="filtros">
       <button class="btn filtro active" data-status="todos">Todos</button>
       <button class="btn filtro" data-status="andamento">Em andamento</button>
       <button class="btn filtro" data-status="atrasado">Atrasados</button>
@@ -81,10 +86,21 @@
     </div>
   </div>
 </div>
-<td class="acoes-pedido">
+
   <button class="btn-pedido edit-pedido">Editar</button>
   <button class="btn-pedido delete-pedido">Excluir</button>
 </td>
 <script src="pedidos.js"></script>
+<div id="modalPedido" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h2>Novo Pedido</h2>
+
+    <input type="text" id="cliente" placeholder="Cliente">
+    <input type="text" id="produto" placeholder="Produto">
+
+    <button onclick="salvarPedido()">Salvar</button>
+    <button onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
 </body>
 </html>
